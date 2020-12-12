@@ -15,7 +15,6 @@ const axios = require('axios').default;
   // side effect in a component, you want to think about which state and/or props it should
   // sync up with, if any.
 
-
 const App = () => {
   //Create the different states
   const [characterOfInterest, setCharacterOfInterest] = useState('');
@@ -25,7 +24,6 @@ const App = () => {
 
   //Define where the endpoint to go fetch from is, filter by alive to avoid dead characters
   const endPointAlive = `https://rickandmortyapi.com/api/character/?name=${characterOfInterest}&status=alive`
-
 
   //Set state of character of interest to Rick helper for button
   const showRick = () => {
@@ -52,8 +50,7 @@ const App = () => {
 
   //Get the count of characters
   useEffect(() => {
-    axios
-    .get ( 'https://rickandmortyapi.com/api/character/?name=rick&status=alive' )
+    axios.get ( 'https://rickandmortyapi.com/api/character/?name=rick&status=alive' )
     .then (res =>{
       setAliveRicks (res.data.info.count);
     })
